@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<br/>
+<br/>
+<center>
+<div class="container">
+    
+<form method='POST' action="{% url 'create' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    Image:
+    <input type="file" name="image"/>
+    <br/>
+    summary:
+    <input type="text" name="summary"/>
+    <br/>
+    <br>
+    <input type="submit" value="create"/>
+    
+    
+    </form>
+    </div>
+    </center>
+    {% endblock %}
