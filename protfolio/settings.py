@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesome',
+    
 ]
 
 MIDDLEWARE = [
@@ -116,6 +118,8 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+FONTAWESOME_CSS_URL = '//cdn.example.com/fontawesome-min.css'  # absolute url
+FONTAWESOME_CSS_URL = 'myapp/css/fontawesome.min.css'  # relative url
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 

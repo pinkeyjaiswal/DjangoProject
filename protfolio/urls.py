@@ -18,6 +18,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+#from django.conf.urls import patterns, url
 
 
 
@@ -33,6 +34,10 @@ urlpatterns = [
     path('base/',views.base, name='base'),
     path('HTML/',views.HTML, name='HTML'),
     path('details/<int:blog_id>/',views.details,name='details'),
+    path('adds/<int:blog_id>/',views.adds, name='adds'),
+
+    
+    
    
 
     

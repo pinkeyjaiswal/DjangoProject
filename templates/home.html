@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load fontawesome %}
+
 {% block content %}
 
 <main role="main">
@@ -68,7 +70,8 @@
          <div class="col-lg-4">
             <br>
          
-            <div class="card-header">Latest Activity</div>
+            <div class="card-header">{% fontawesome_icon 'star' large=True spin=True %}
+              Latest Activity</div>
             <div class="card-body text-success">
               <a href="#"><h6>बैंकको १६ औं वार्षिक साधारणसभा सम्पन्न</h6></a>
               <h6><a href="#">सदस्य भेला तथा अन्तरक्रिया कार्यक्रम </a></h6>
@@ -82,12 +85,19 @@
          
          <div class="col-lg-4">
             <br>
-            <div class="card-header">News & Notices</div>
+            <div class="card-header">{% fontawesome_icon 'star' large=True spin=True %}News & Notices</div>
+      
+              {% for temp in header.all %}
                <div class="card-body text-success">
-                  <h6><a href="#">सदस्य भेला तथा अन्तरक्रिया कार्यक्रम </a></h6>
-                  <h6><a href="#">सदस्य भेला तथा अन्तरक्रिया कार्यक्रम </a></h6>
+                  <h6><a href="#">
+                    <ul class="fa-ul">
+                       <li> {% fontawesome_icon 'home' rotate=90 li=True %}/li>
+                    </ul></a></h6>
+                  <h6><a href="{% url 'add' temp.id %}">{{temp.title}}</a></h6>
                   <h6><a href="#">सदस्य भेला तथा अन्तरक्रिया कार्यक्रम </a></h6>
                </div>
+               {% endfor %}
+           
          </div><!-- end col-lg-4-->
       
        </div><!-- end row--> 

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<br/>
+<br/>
+
+<div class="container">
+    
+<form method='POST' action="{% url 'adds' temp.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    Title:
+    <input type="text" name="title"/>
+    <br/>
+    <br>
+    <input type="submit" value="Add"/>
+    
+    
+    </form>
+    </div>
+    {% endblock %}

@@ -1,12 +1,33 @@
 from django.shortcuts import render,redirect
-from Banking.models import Banking
+from Banking.models import Banking,header
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 def Home(request):
-    B=Banking.objects
+    B=Banking.objects.all
     return render(request,'home.html',{'Banking':B})
+ 
+def adds(request, blog_id):
+     #header=header.objects.all
+     if request.method=="POST":
+          if request.POST['title']:
+              k=get_object_or_404(Banking, pk=blog_id)
+              k=header()
+              k.title=request.POST['title']
+               #header=get_object_or_404(header, pk=blog_id)
+               #name_01=request.POST['title']
+               # new_add=header(title=name_o1)
+              k.save()
+              return redirect('Home')
+     else:
+          return render(request,'add.html',{'error':"no product found"})
+     return render(request,'add.html',{'header':k})
+
+
+
+
+
 def details(request,blog_id):
     d=get_object_or_404(Banking,pk=blog_id)
     return render(request,'details.html',{'det':d})
